@@ -4,10 +4,7 @@
 	"keywords": ["sledgehammer", "framework", "laravel"],
 	"homepage": "http://sledgehammer.github.com/",
 	"license": "CC-BY-SA-3.0",
-    "autoload": {
-        "files": ["activate.php"]
-    },
-    "require": {
+	"require": {
 		"php": ">=5.3.8",
 		"sledgehammer/core": "*",
 		"laravel/laravel": "*"
