@@ -8,7 +8,7 @@
         "files": ["activate.php"]
     },
     "require": {
-		"php": ">=5.3.0",
+		"php": ">=5.3.8",
 		"sledgehammer/core": "*",
 		"laravel/laravel": "*"
 	}
