@@ -16,6 +16,10 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider {
 		// Re-register the Sledgehammer errorhandler
 		set_error_handler(array(Framework::$errorHandler, 'errorCallback'));
 		set_exception_handler(function ($exception) {
+			if (headers_sent() === false && $exception instanceof HttpException) {
+				$code = $exception->getStatusCode();
+				send_headers(array('Status' => $code . ' ' . Framework::$statusCodes[$code]));
+			}
 			Framework::$errorHandler->report($exception);
 			// Allow laravel to handle the NotFoundHttpException, etc
 			if ($exception instanceof HttpException) {
