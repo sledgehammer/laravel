@@ -11,8 +11,17 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
  */
 class ServiceProvider extends \Illuminate\Support\ServiceProvider {
 
-	public function register() {
+    /**
+     * @inherit
+     */
+    public function boot() {
+         $this->package('sledgehammer/laravel', 'sledgehammer', dirname(__DIR__));
+    }
 
+    /**
+     * @inherit
+     */
+	public function register() {
 		// Re-register the Sledgehammer errorhandler
 		set_error_handler(array(Framework::$errorHandler, 'errorCallback'));
 		set_exception_handler(function ($exception) {
@@ -38,6 +47,14 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider {
 		if (empty($GLOBALS['argv']) || strpos(implode($GLOBALS['argv']), 'migrate') === false) {
 			$this->injectDatabase();
 		}
+
+        $this->app->after(function($request, $response) {
+            if (headers_sent() === false && DebugR::isEnabled()) {
+                ob_start();
+                statusbar();
+                DebugR::send('sledgehammer-statusbar', ob_get_clean());
+            }
+         });
 	}
 
 	/**

@@ -21,4 +21,14 @@ After updating composer, add the ServiceProvider to the providers array in app/c
 'Sledgehammer\ServiceProvider',
 ```
 
-# Configuration
+
+# Statusbar
+
+Add `@include('sledgehammer::statusbar')` before the `</body>` and run:
+
+```
+artisan asset:publish sledgehammer/core
+artisan asset:publish sledgehammer/laravel
+artisan view:publish sledgehammer/laravel
+```
+
