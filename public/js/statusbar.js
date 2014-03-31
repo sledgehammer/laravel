@@ -1,4 +1,7 @@
 (function() {
+	if (!window.addEventListener) {
+		return;
+	}
 	var counter = 0;
 	window.addEventListener('message', function(e) {
 		if (e.data.debugR && e.data.label === 'sledgehammer-statusbar') {
