@@ -1,12 +1,17 @@
 {
-	"name": "sledgehammer/laravel",
-	"description": "Use the Sledgehammer Framework as a library in a Laravel project",
-	"keywords": ["sledgehammer", "framework", "laravel"],
-	"homepage": "http://sledgehammer.github.com/",
-	"license": "CC-BY-SA-3.0",
-	"require": {
-		"php": ">=5.3.8",
-		"sledgehammer/core": "*",
-		"laravel/laravel": "*"
-	}
+    "name": "sledgehammer/laravel",
+    "description": "Use the Sledgehammer Framework as a library in a Laravel project",
+    "keywords": ["sledgehammer", "framework", "laravel"],
+    "homepage": "http://sledgehammer.github.com/",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.8",
+        "sledgehammer/core": "*",
+        "laravel/laravel": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sledgehammer\\Laravel\\": "src/"
+        }
+    }
 }
