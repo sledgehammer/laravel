@@ -1,10 +1,10 @@
 # Sledgehammer Laravel
 Adds sledgehammer goodies to Laravel
 
-* dump()
-* ErrorHandling
-* Mysql warnings & notices
-* statusbar incl. SQL querylog
+* statusbar
+* debug ajax calls with DebugR
+* Sledgehammer\dump()
+* Curl
 
 # Installation
 
@@ -18,17 +18,17 @@ Require this package in your composer.json and run composer update
 
 After updating composer, add the ServiceProvider to the providers array in app/config/app.php
 ```
-'Sledgehammer\Laravel\ServiceProvider',
+'Sledgehammer\Laravel\SledgehammerServiceProvider',
 ```
 
+Add DebugRMiddleware to the $middleware array in app/Http/Kernel.php
+'Sledgehammer\Laravel\DebugRMiddleware'
 
 # Statusbar
 
 Add `@include('sledgehammer::statusbar')` before the `</body>` and run:
 
 ```
-artisan asset:publish sledgehammer/core
-artisan asset:publish sledgehammer/laravel
-artisan view:publish sledgehammer/laravel
+artisan vendor:publish
 ```
 

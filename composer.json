@@ -5,9 +5,8 @@
     "homepage": "http://sledgehammer.github.com/",
     "license": "MIT",
     "require": {
-        "php": ">=5.3.8",
-        "sledgehammer/core": "*",
-        "laravel/framework": "*"
+        "sledgehammer/core": ">=16",
+        "laravel/framework": ">=5"
     },
     "autoload": {
         "psr-4": {
