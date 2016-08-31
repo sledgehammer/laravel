@@ -7,7 +7,7 @@
     "require": {
         "php": ">=5.3.8",
         "sledgehammer/core": "*",
-        "laravel/laravel": "*"
+        "laravel/framework": "*"
     },
     "autoload": {
         "psr-4": {
